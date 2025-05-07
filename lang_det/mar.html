@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>English to Marathi Translator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="new.css">
+
+</head>
+<body id="next">
+  <img src="logo.png" class="newimg"/>
+  <div class="lan">
+  <h3 >English to Marathi Translator</h3>
+
+  <div>
+    <label for="englishInput">Type in English:</label>
+    <textarea id="englishInput" rows="4" cols="50"></textarea><br>
+    <button id="translateButton">Translate</button>
+  </div>
+
+  <div >
+    <label for="marathiOutput">Translated Marathi:</label>
+    <textarea id="marathiOutput" rows="4" cols="50" readonly></textarea>
+  </div>
+</div>
+  <script>
+    $('#translateButton').click(function() {
+      const englishText = $('#englishInput').val();
+
+      // Google Translate API call
+      $.ajax({
+        url: `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=mr&dt=t&q=${encodeURI(englishText)}`,
+        success: function(result) {
+          if (result[0] && result[0][0] && result[0][0][0]) {
+            const marathiText = result[0][0][0];
+            $('#marathiOutput').val(marathiText);
+          } else {
+            $('#marathiOutput').val('Translation not available');
+          }
+        },
+        error: function() {
+          $('#marathiOutput').val('Error occurred while translating');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

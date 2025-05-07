@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>English to Hindi Translator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="new.css">
+</head>
+<body id="next">
+  <img src="logo.png" class="newimg"/>
+  <div class="lan">
+  <h3>English to Hindi Translator</h3>
+
+  <div>
+    <label for="englishInput">Type in English:</label>
+    <textarea id="englishInput" rows="4" cols="50"></textarea>
+    <button id="translateButton">Translate</button>
+  </div>
+
+  <div>
+    <label for="hindiOutput">Translated Hindi:</label>
+    <textarea id="hindiOutput" rows="4" cols="50" readonly></textarea>
+  </div>
+  </div>
+  <script>
+    $('#translateButton').click(function() {
+      const englishText = $('#englishInput').val();
+
+      // Google Translate API call
+      $.ajax({
+        url: `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=hi&dt=t&q=${encodeURI(englishText)}`,
+        success: function(result) {
+          if (result[0] && result[0][0] && result[0][0][0]) {
+            const hindiText = result[0][0][0];
+            $('#hindiOutput').val(hindiText);
+          } else {
+            $('#hindiOutput').val('Translation not available');
+          }
+        },
+        error: function() {
+          $('#hindiOutput').val('Error occurred while translating');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

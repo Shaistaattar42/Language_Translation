@@ -1,0 +1,152 @@
+.head{
+    background-image: url("final.jpeg");
+     height:500px;
+    width: 1200px; 
+    background-repeat: no-repeat;
+    margin-left: 10%;
+    background-position: 50%;
+    align-items: center;
+    font-family: cursive;
+    border-radius: 30px;
+    
+}
+#header{
+    /* background-color: black; */
+    font-size: 60px;
+    color:black;
+    height: 80px;
+    width:1600px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: Pussycat,Algerian,Broadway;
+    margin-bottom: 30px;
+    border-radius: 30px;   
+    
+}
+body{
+    background-color:#ccccff;
+}
+
+.butt{
+    background-color: black;
+    color:white;
+    text-align: center;
+    align-items: center;
+    margin-left: 45%; 
+    margin-top: 30px;
+    height: 60px;
+    width: 300px;
+    font-size: 20px;
+    align-items: center;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+/* button:hover{
+    background-color: blueviolet;
+} */
+
+.opt{
+    /* padding:50px; */
+    /* background-color: green; */
+    transition: transform .2s;
+    width:200px;
+    height:200px;
+    margin:0 auto;
+
+}
+.opt:hover{
+    transform:scale(1.5);
+    
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.opt{
+    background-color: black;
+    color:white;
+    text-align: center;
+    align-items: center;
+    margin-left: 15%; 
+    margin-top: 20px;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    align-items: center;
+    border-radius: 20px;
+    text-decoration: none;
+
+}
+h2{
+    font-style:  italic;
+
+}
+
+#translateButton{
+    background-color: black;
+    color:white;
+    text-align: center;
+    align-items: center;
+    margin-left: 15%; 
+    margin-top: 20px;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    align-items: center;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-bottom: 3%;
+
+}
+
+ .lan{
+
+    align-items: center;
+    margin-left: 60px;
+    margin-top: 60px;
+    align-items: center;
+    font-family: Pussycat,Algerian,Broadway;
+    font-size: 40px;
+
+   
+} 
+
+.newimg{
+    margin-top: 5%;
+    height: 500px;
+    width:500px;
+    
+}
+#next{
+    display: flex;
+}
+
+.zoom {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 buttons per line */
+    gap: 10px;
+    max-width: 800px;  /* Optional: limits the total width */
+    margin: 0 auto 20px auto; /* Center the grid */
+}
+
+.opt {
+    padding: 10px 20px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.opt a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+

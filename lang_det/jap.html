@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>English to Japanese Translator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="new.css">
+</head>
+<body id="next">
+  <img src="logo.png" class="newimg"/>
+  <div class="lan">
+  <h3>English to Japanese Translator</h3>
+  
+  <div>
+    <label for="englishInput">Type in English:</label>
+    <textarea id="englishInput" rows="4" cols="50"></textarea>
+    <button id="translateButton">Translate</button>
+  </div>
+
+  <div>
+    <label for="japaneseOutput">Translated Japanese:</label>
+    <textarea id="japaneseOutput" rows="4" cols="50" readonly></textarea>
+  </div>
+  </div>
+  <script>
+    $('#translateButton').click(function() {
+      const englishText = $('#englishInput').val();
+
+      // Google Translate API call
+      $.ajax({
+        url: `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja&dt=t&q=${encodeURI(englishText)}`,
+        success: function(result) {
+          if (result[0] && result[0][0] && result[0][0][0]) {
+            const japaneseText = result[0][0][0];
+            $('#japaneseOutput').val(japaneseText);
+          } else {
+            $('#japaneseOutput').val('Translation not available');
+          }
+        },
+        error: function() {
+          $('#japaneseOutput').val('Error occurred while translating');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
